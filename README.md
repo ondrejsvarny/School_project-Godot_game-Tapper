@@ -1,22 +1,14 @@
-# Zápočtový program: *název vašeho programu*
-
-*Tento soubor slouží jako šablona. Vhodně ho upravte podle vašeho projektu. Text psaný kurzívou obsahuje instrukce pro vás – před odevzdáním je prosím odstraňte nebo nahraďte vlastním textem.*
+# Zápočtový program: *Tapper (retro hra)*
 
 ## Specifikace
 
-*Sem napište stručnou specifikaci vašeho programu – co váš program má dělat (podobně jako jste mi psali do mailu). Stačí zhruba 1–2 odstavce.*
+Môj projekt je hra Tapper. Je to pôvodne arkádová hra z 80. rokov, ktorej rôzne verzie neskôr vyšli aj na počítače ZX Spectrum a iné platformy. Ide o hru, kde hráte za barmana, ktorý čapuje pivo a posiela ho po pultoch zákazníkom, popri tom musíte chytať prázdne poháre a často je doplnená ďalšími mechanikami a bonusmi. 
 
-## *Doporučená struktura projektu*
-
-*Je vhodné v repozitáři oddělit zdrojové kódy vašeho programu od dokumentace (a případně testů, pokud je máte). Pro zdrojové kódy tedy vytvořte složku, v C# se nejčastěji pojmenovává podle jména projektu. Například pokud by se váš program jmenoval JMENO_PROJEKTU, tak budete mít složku `JMENO_PROJEKTU` a v ní `JMENO_PROJEKTU.csproj` a `Program.cs` a případně další `.cs` soubory.*
-
-*Pro dokumentaci je připravena složka `docs`, její obsah vhodně upravte.*
+V mojej verzii som v skratke implementoval: 4 barové pulty a pohyb hráča (barmana) hore/dole medzi barmi a pozdĺž barov, spawnovanie a pohyb zákazníkov pozdĺž pultov, čapovanie a hádzanie pív zákazníkom, chytanie prázdnych pohárov, systém 3 životov a situácie ktoré život uberú, spawnovanie sprepitného atď. 
 
 ## Instalace a spuštění
 
-*Pokud je váš program v C#, stačí upravit JMENO_PROJEKTU níže a případně doplnit další informace ke spuštění (jestli má nějaké parametry, vstupní soubory, ...). Pokud je parametrů hodně nebo je potřeba nějaký speciální formát vstupních souborů, nechte tuto sekci jen stručnou a podrobněji to popište v uživatelské dokumentaci (a sem dejte odkaz). Pokud je program v jiném programovacím jazyce nebo pro spuštění vyžaduje instalaci nějakých knihoven či nástrojů, tuto sekci vhodně upravte, abych byl při kontrole schopen nainstalovat si vše potřebné a program spustit.*
-
-Pro spuštění přejděte do složky `JMENO_PROJEKTU` a spusťte příkaz `dotnet run`.
+Hra je vyvýjaná v game engine Godot. Pre jednoduché spustenie vo Windowse stačí spustiť vyexportovanú hru `tapper.exe` v zložke `export`. Pre otvorenie projektu v Godot engine, treba mať stiahnutý `Godot v4.6.1 mono` a importnúť v ňom priečinok `TAPPER`. 
 
 ## Dokumentace
 
