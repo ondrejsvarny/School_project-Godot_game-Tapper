@@ -8,7 +8,7 @@ V mojej verzii som v skratke implementoval: 4 barové pulty a pohyb hráča (bar
 
 ## Instalace a spuštění
 
-Hra je vyvýjaná v game engine Godot. Pre jednoduché spustenie vo Windowse stačí spustiť vyexportovanú hru `tapper.exe` v zložke `export`. Pre otvorenie projektu v Godot engine, treba mať stiahnutý `Godot v4.6.1 mono` a importnúť v ňom priečinok `TAPPER`. 
+Hra je vyvýjaná v game engine Godot. Pre jednoduché spustenie vo Windowse stačí spustiť vyexportovanú hru `tapper.exe` v zložke `export`. Pre otvorenie projektu v Godote, treba mať stiahnutý `Godot Engine v4.6.1 mono` a importnúť v ňom zložku `TAPPER`. 
 
 ## Dokumentace
 
