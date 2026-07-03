@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class Player : CharacterBody2D
 {
@@ -8,9 +7,8 @@ public partial class Player : CharacterBody2D
     [Export] public Marker2D[] BarPositions { get; set; }
     
     public Tap CurrentTap { get; set; }
-    private bool _isPouring = false, _isVerticallyMoving = false;
+    private bool _isPouring = false;
     private int _currentBarIndex = 0;
-    [Signal] public delegate void MoveEventHandler();
     
     private Sprite2D _sprite;
     private AnimationPlayer _animationPlayer;
@@ -25,12 +23,13 @@ public partial class Player : CharacterBody2D
         if (BarPositions != null && BarPositions.Length > 0)
         {
             GlobalPosition = BarPositions[_currentBarIndex].GlobalPosition;
+            _sprite.FlipH = true;
         }
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        if (_isPouring || _isVerticallyMoving) return;
+        if (_isPouring) return;
 
         if (Input.IsActionJustPressed("interact") && CurrentTap != null)
         {
@@ -39,8 +38,6 @@ public partial class Player : CharacterBody2D
         }
         
         HandleVerticalMovement();
-        if (_isVerticallyMoving) return;
-        
         HandleHorizontalMovement();
         
         MoveAndSlide();
@@ -70,39 +67,59 @@ public partial class Player : CharacterBody2D
         }
     }
     
-    private async void HandleVerticalMovement()
+    private void HandleVerticalMovement()
     {
         if (BarPositions == null || BarPositions.Length == 0) return;
-
-        bool moved = false;
         
+        bool moved = false;
         if (Input.IsActionJustPressed("ui_up") && _currentBarIndex > 0)
         {
-            _isVerticallyMoving = true;
-            _animationPlayer.Play("move");
-            await ToSignal(this, SignalName.Move);
+            LeaveMoveAnim();
             _currentBarIndex--;
             moved = true;
         }
  
         else if (Input.IsActionJustPressed("ui_down") && _currentBarIndex < BarPositions.Length - 1)
         {
-            _isVerticallyMoving = true;
-            _animationPlayer.Play("move");
-            await ToSignal(this, SignalName.Move);
+            LeaveMoveAnim();
             _currentBarIndex++;
             moved = true;
         }
-
-        // Ak hráč stlačil šípku a mohol sa pohnúť, aktualizujeme jeho Y pozíciu
+        
         if (moved)
         {
-            _isVerticallyMoving = false;
             GlobalPosition = BarPositions[_currentBarIndex].GlobalPosition;
+            ResetPhysicsInterpolation(); 
             _sprite.FlipH = true;
-            
-            // Voliteľné: Zrušenie načapovaného piva pri zmene radu (aby sa odpojil od Tapu)
-            CurrentTap = null; 
+        }
+        
+    }
+    
+    private async void LeaveMoveAnim()
+    {
+        Node2D animContainer = new Node2D();
+        animContainer.ZIndex = ZIndex;
+        
+        Sprite2D sprite = (Sprite2D)_sprite.Duplicate();
+        AnimationPlayer animPlayer = (AnimationPlayer)_animationPlayer.Duplicate();
+        
+        sprite.FlipH = _sprite.FlipH;
+        sprite.FlipH = !sprite.FlipH;
+        
+        animContainer.AddChild(sprite);
+        animContainer.AddChild(animPlayer);
+        
+        GetParent().AddChild(animContainer);
+        animContainer.GlobalPosition = GlobalPosition;
+        animContainer.ResetPhysicsInterpolation();
+        
+        animPlayer.Play("move");
+        
+        await ToSignal(animPlayer, AnimationPlayer.SignalName.AnimationFinished);
+        
+        if (IsInstanceValid(animContainer))
+        {
+            animContainer.QueueFree();
         }
     }
 
@@ -121,7 +138,6 @@ public partial class Player : CharacterBody2D
         await ToSignal(_animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
         
         _animationPlayer.Play("idle");
-        //_sprite.FlipH = false;
         
         _isPouring = false;
         

@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://ci3kufuvvqj4w" path="res://Objects/tap.tscn" id="3_xto7t"]
 [ext_resource type="PackedScene" uid="uid://dpe4ro30bwj0c" path="res://Objects/Table_End.tscn" id="4_uhyyw"]
 [ext_resource type="PackedScene" uid="uid://bhywt0d1ychty" path="res://Objects/customer.tscn" id="6_t80w2"]
-[ext_resource type="PackedScene" uid="uid://crkv2fjated1d" path="res://Objects/tips.tscn" id="10_vx8ih"]
 
 [node name="Level" type="Node2D" unique_id=1962190634]
 script = ExtResource("1_t2u7g")
@@ -25,6 +24,7 @@ z_index = 2
 position = Vector2(-15, 49)
 
 [node name="TableEnd" parent="Sprite2D/Table1" unique_id=1937547523 instance=ExtResource("4_uhyyw")]
+z_as_relative = false
 position = Vector2(-312, 113)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Table1" unique_id=2071581793]
@@ -39,20 +39,33 @@ texture = ExtResource("1_wav5q")
 region_enabled = true
 region_rect = Rect2(74, 1559, 176, 48)
 
-[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D/Table1" unique_id=274449266]
-position = Vector2(146, 131)
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D/Table1" unique_id=1885964212]
+position = Vector2(87, 131)
 texture = ExtResource("1_wav5q")
 region_enabled = true
-region_rect = Rect2(74, 1559, 176, 48)
+region_rect = Rect2(272, 1559, 64, 48)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D/Table1" unique_id=1656606197]
+position = Vector2(151, 131)
+texture = ExtResource("1_wav5q")
+region_enabled = true
+region_rect = Rect2(272, 1559, 64, 48)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprite2D/Table1" unique_id=1630250716]
+position = Vector2(215, 131)
+texture = ExtResource("1_wav5q")
+region_enabled = true
+region_rect = Rect2(272, 1559, 64, 48)
 
 [node name="TableStart" parent="Sprite2D/Table1" unique_id=1179289274 instance=ExtResource("3_8a2b0")]
-position = Vector2(240, 131)
+position = Vector2(253, 131)
 
 [node name="Table2" type="Node2D" parent="Sprite2D" unique_id=612112867]
 z_index = 2
 position = Vector2(-444, -190)
 
 [node name="TableEnd" parent="Sprite2D/Table2" unique_id=668973801 instance=ExtResource("4_uhyyw")]
+z_as_relative = false
 position = Vector2(148, 257)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Table2" unique_id=1326440378]
@@ -73,7 +86,7 @@ texture = ExtResource("1_wav5q")
 region_enabled = true
 region_rect = Rect2(272, 1559, 64, 48)
 
-[node name="Sprite2D5" type="Sprite2D" parent="Sprite2D/Table2" unique_id=1885964212]
+[node name="Sprite2D5" type="Sprite2D" parent="Sprite2D/Table2" unique_id=631751093]
 position = Vector2(614, 275)
 texture = ExtResource("1_wav5q")
 region_enabled = true
@@ -87,6 +100,7 @@ z_index = 2
 position = Vector2(-438, -201)
 
 [node name="TableEnd" parent="Sprite2D/Table3" unique_id=1540326699 instance=ExtResource("4_uhyyw")]
+z_as_relative = false
 position = Vector2(174, 174)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Table3" unique_id=1680496990]
@@ -115,6 +129,7 @@ z_index = 2
 position = Vector2(-431, -212)
 
 [node name="TableEnd" parent="Sprite2D/Table4" unique_id=1164612932 instance=ExtResource("4_uhyyw")]
+z_as_relative = false
 position = Vector2(198, 89)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Table4" unique_id=1829846154]
@@ -136,10 +151,10 @@ position = Vector2(574, 107)
 position = Vector2(204, -109)
 
 [node name="BarmanPoint3" type="Marker2D" parent="Sprite2D" unique_id=979003669]
-position = Vector2(240, -23)
+position = Vector2(240, -13)
 
 [node name="BarmanPoint2" type="Marker2D" parent="Sprite2D" unique_id=726917346]
-position = Vector2(270, 70)
+position = Vector2(265, 81)
 
 [node name="BarmanPoint1" type="Marker2D" parent="Sprite2D" unique_id=2079713073]
 position = Vector2(305, 177)
@@ -150,12 +165,12 @@ rotation = 3.1415925
 scale = Vector2(1, -1)
 
 [node name="Pipe3" parent="Sprite2D" unique_id=1070543975 instance=ExtResource("3_xto7t")]
-position = Vector2(279, -58)
+position = Vector2(279, -48)
 rotation = 3.1415925
 scale = Vector2(1, -1)
 
 [node name="Pipe2" parent="Sprite2D" unique_id=1219748059 instance=ExtResource("3_xto7t")]
-position = Vector2(309, 35)
+position = Vector2(304, 46)
 rotation = 3.1415925
 scale = Vector2(1, -1)
 
@@ -165,40 +180,32 @@ rotation = 3.1415925
 scale = Vector2(1, -1)
 
 [node name="Player" parent="Sprite2D" unique_id=1715337038 node_paths=PackedStringArray("BarPositions") instance=ExtResource("3_uhyyw")]
-position = Vector2(240, -23)
+position = Vector2(265, 81)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 BarPositions = [NodePath("../BarmanPoint4"), NodePath("../BarmanPoint3"), NodePath("../BarmanPoint2"), NodePath("../BarmanPoint1")]
 
-[node name="Sprite2D" parent="Sprite2D/Player" index="1" unique_id=188409323]
-flip_h = true
-
 [node name="SpawnPoint1" type="Marker2D" parent="Sprite2D" unique_id=293101175]
-position = Vector2(-328.415, 140)
+position = Vector2(-316, 140)
 
 [node name="SpawnPoint2" type="Marker2D" parent="Sprite2D" unique_id=1745835509]
-position = Vector2(-270, 53)
+position = Vector2(-284, 45)
 
 [node name="SpawnPoint3" type="Marker2D" parent="Sprite2D" unique_id=1153924325]
-position = Vector2(-237, -42)
+position = Vector2(-251, -49)
 
 [node name="SpawnPoint4" type="Marker2D" parent="Sprite2D" unique_id=1924234759]
-position = Vector2(-206, -139)
+position = Vector2(-221, -145)
 
 [node name="CustomerSpawner" type="Node" parent="Sprite2D" unique_id=77437248 node_paths=PackedStringArray("SpawnPoints")]
 script = ExtResource("1_ecu0b")
 CustomerScene = ExtResource("6_t80w2")
 SpawnPoints = [NodePath("../SpawnPoint1"), NodePath("../SpawnPoint2"), NodePath("../SpawnPoint3"), NodePath("../SpawnPoint4")]
-BaseBetweenTime = 10.0
-TimeVariance = 3.0
+BaseSpawnTime = 6.0
+SpawnTimeVariance = 2.5
 
 [node name="Customer" parent="Sprite2D" unique_id=399795911 instance=ExtResource("6_t80w2")]
-z_index = 1
-position = Vector2(-292, 148)
-
-[node name="Tips" parent="Sprite2D" unique_id=1843838397 instance=ExtResource("10_vx8ih")]
-position = Vector2(165, -25)
+z_index = 3
+position = Vector2(-316, 140)
 
 [node name="UI" parent="." unique_id=1860078382 instance=ExtResource("2_xto7t")]
-
-[editable path="Sprite2D/Player"]

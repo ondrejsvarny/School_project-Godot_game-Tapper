@@ -26,7 +26,6 @@ public partial class EmptyGlass : Area2D
 
 	private void GetCaught()
 	{
-		Global.Score++;
 		QueueFree();
 	}
 

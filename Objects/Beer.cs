@@ -23,6 +23,7 @@ public partial class Beer : Area2D
 			return false;
 
 		_isCaught = true;
+		Global.Score++;
 		QueueFree();
 		return true;
 	}

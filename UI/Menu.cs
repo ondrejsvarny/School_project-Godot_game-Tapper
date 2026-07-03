@@ -4,12 +4,12 @@ using System;
 public partial class Menu : Control
 {
 
-	public void _on_Play_pressed()
+	public void _on_play_pressed()
 	{
 		GetTree().ChangeSceneToFile("res://Levels/level.tscn");
 	}
 
-	public void _on_Exit_pressed()
+	public void _on_exit_pressed()
 	{
 		GetTree().Quit();
 	}

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public partial class Customer : Area2D
 {
-    [Export] public float WalkSpeed { get; set; } = 30.0f; 
+    [Export] public float WalkSpeed { get; set; } = 20.0f; 
     [Export] public float SlideBackSpeed { get; set; } = 150.0f;
-    [Export] public float GoingDownSpeed { get; set; } = 20.0f;
     [Export] public float SlideBackSec { get; set; } = 0.6f;
+    [Export] public float GoingDownSpeed { get; set; } = 20.0f;
     
     [Export] public PackedScene EmptyGlassScene { get; set; }
     [Export] public PackedScene TipScene { get; set; }
@@ -17,14 +17,14 @@ public partial class Customer : Area2D
     private AnimationPlayer _animationPlayer;
     private Marker2D _emptyGlassSpawnMarker;
     
-    // --- Spoločný zoznam pre striedanie zákazníkov ---
-    private static List<int> _availableSkins = new List<int>();
-    private static RandomNumberGenerator _rng = new RandomNumberGenerator();
-    
+    private static List<int> _availableSkins = new();
+    private static RandomNumberGenerator _rng = new();
+
+    private float _startPosY;
     private int _mySkinIndex = 0;
     private bool _canGoOut = false;
     
-    [Export] public float MaxTipsSec = 8.0f;
+    [Export] public float MaxTipsSec = 10.0f;
     private Timer _timer = new();
     
     private enum CustomerState
@@ -45,6 +45,8 @@ public partial class Customer : Area2D
         
         SetupRandomSkin();
 
+        _startPosY = Position.Y;
+
         _timer.WaitTime = MaxTipsSec;
         _timer.OneShot = true;
         AddChild(_timer);
@@ -53,7 +55,6 @@ public partial class Customer : Area2D
     
     private void SetupRandomSkin()
     {
-        // 1. Ak došli zákazníci, znova naplníme zoznam (0, 1, 2, 3, 4, 5)
         if (_availableSkins.Count == 0)
         {
             for (int i = 0; i < 6; i++)
@@ -61,12 +62,9 @@ public partial class Customer : Area2D
                 _availableSkins.Add(i);
             }
         }
-
-        // 2. Vytiahneme náhodného zákazníka
+        
         int randomIndex = _rng.RandiRange(0, _availableSkins.Count - 1);
         _mySkinIndex = _availableSkins[randomIndex];
-        
-        // 3. Zmažeme ho zo zoznamu, aby ďalší dostal iného
         _availableSkins.RemoveAt(randomIndex); 
     }
     
@@ -93,7 +91,6 @@ public partial class Customer : Area2D
         }
         else if (_currentState == CustomerState.GoingDown)
         {
-            Direction = Vector2.Down;
             Position += Direction * GoingDownSpeed * (float)delta;
         }
     }
@@ -110,6 +107,11 @@ public partial class Customer : Area2D
     private async void ReactToBeer()
     {
         _canGoOut = true;
+
+        Position = new Vector2(Position.X, _startPosY);
+        Direction = Vector2.Right;
+        ZIndex = 3;
+        
         _currentState = CustomerState.SlidingBack;
 
         await ToSignal(GetTree().CreateTimer(SlideBackSec), SceneTreeTimer.SignalName.Timeout);
@@ -130,6 +132,8 @@ public partial class Customer : Area2D
 
     public void GoDown()
     {
+        ZIndex = 1;
+        Direction = Vector2.Down;
         _currentState = CustomerState.GoingDown;
         Global.NumOfLives--;
     }
