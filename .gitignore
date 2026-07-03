@@ -1,21 +1,30 @@
 # Godot špecifické
 .godot/
+TAPPER/.godot/
 *.import
+TAPPER/*.import
 export_presets.cfg
+TAPPER/export_presets.cfg
 
 # JetBrains (Rider)
 .idea/
+TAPPER/.idea/
 
 # Visual Studio
 .vs/
+TAPPER/.vs/
 *.sln
+TAPPER/*.sln
 *.csproj
+TAPPER/*.csproj
 *.user
+TAPPER/*.user
 bin/
+TAPPER/bin/
 obj/
+TAPPER/obj/
 
 # OS veci
 Thumbs.db
-.DS_Store# Godot 4+ specific ignores
-.godot/
+.DS_Store
 /android/
