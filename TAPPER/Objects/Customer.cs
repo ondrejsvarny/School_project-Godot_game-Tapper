@@ -135,7 +135,6 @@ public partial class Customer : Area2D
         ZIndex = 1;
         Direction = Vector2.Down;
         _currentState = CustomerState.GoingDown;
-        Global.NumOfLives--;
     }
     
     private void ThrowEmptyGlass()
@@ -168,6 +167,7 @@ public partial class Customer : Area2D
         }
         else if (animName == $"shout_{_mySkinIndex}")
         {
+            Global.NumOfLives--;
             QueueFree(); 
             
         }

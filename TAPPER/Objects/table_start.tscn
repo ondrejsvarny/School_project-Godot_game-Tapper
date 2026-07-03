@@ -23,7 +23,7 @@ shape = SubResource("RectangleShape2D_ajmvt")
 [node name="CustomerEnd" type="Area2D" parent="." unique_id=1087097104]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CustomerEnd" unique_id=2055415340]
-position = Vector2(9, -11)
+position = Vector2(1, -12)
 shape = SubResource("RectangleShape2D_ajmvt")
 
 [connection signal="area_entered" from="GlassEnd" to="." method="_on_glass_end_area_entered"]
