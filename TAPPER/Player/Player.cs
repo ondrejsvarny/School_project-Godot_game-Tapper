@@ -23,6 +23,7 @@ public partial class Player : CharacterBody2D
         if (BarPositions != null && BarPositions.Length > 0)
         {
             GlobalPosition = BarPositions[_currentBarIndex].GlobalPosition;
+            ResetPhysicsInterpolation();
             _sprite.FlipH = true;
         }
     }

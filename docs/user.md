@@ -4,7 +4,7 @@
 Tapper je 2D hra, kde hráte za barmana, ktorý čapuje pivo a posiela ho po pultoch zákazníkom. Je to pôvodne arkádová hra z 80. rokov, ktorej rôzne verzie neskôr vyšli aj na počítače ZX Spectrum a iné platformy. Toto je remake pre moderné platformy s The Simpsons tematikou. Je to "endless" hra, v ktorej zákazníci pribúdajú postupne čoraz rýchlejšie a vašim cieľom je získať čo najvyššie skóre.
 
 ## Spustenie hry
-Hru na zariadení s operačným systémom Windows spustíte otvorením aplikácie `tapper.exe`. Aplikáciu si môžete stiahnuť zo zložky `export` z tohto repozitára. Hra sa spustí v režime Fullscreen. 
+Z tohto repozitára si môžete stiahnuť archív `tapper_export.rar` zo zložky `export` a rozbaliť ho. Hru na zariadení s operačným systémom Windows potom spustíte otvorením aplikácie `Tapper.exe` v danom priečinku. 
 
 ## Ovládanie 
 Hra začne v hlavnom menu, kde jednodnoducho po kliknutí `Play` začnete hrať. `Exit` ukončí celú aplikáciu. 
