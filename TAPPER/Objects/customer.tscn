@@ -1816,8 +1816,11 @@ region_rect = Rect2(226, 729, 37, 32)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=78064005]
 libraries/ = SubResource("AnimationLibrary_xhif6")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=775438916]
+[node name="Marker2DGlass" type="Marker2D" parent="." unique_id=775438916]
 position = Vector2(13, 14)
+
+[node name="Marker2DTip" type="Marker2D" parent="." unique_id=1157352869]
+position = Vector2(13, 19)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

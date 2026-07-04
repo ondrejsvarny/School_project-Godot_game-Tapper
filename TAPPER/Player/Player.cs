@@ -2,7 +2,7 @@ using Godot;
 
 public partial class Player : CharacterBody2D
 {
-    [Export] public float Speed { get; set; } = 200.0f;
+    [Export] public float Speed { get; set; } = 250.0f;
     [Export] public PackedScene BeerScene { get; set; }
     [Export] public Marker2D[] BarPositions { get; set; }
     

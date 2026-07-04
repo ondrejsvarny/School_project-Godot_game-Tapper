@@ -33,11 +33,11 @@ Hlavným cieľom hry je nazbierať čo najviac bodov. To sa dá dvomi spôsobmi:
 * Zákazník chytí pivo - 1 bod
 * Zoberiete sprepitné - 3 body
 
-Body sa zobrazujú vpravo hore počas hry a na koncovej obrazovke. 
+Body sa zobrazujú vpravo hore počas hry a na koncovej obrazovke. Tiež sa tam zobrazuje vaše najvyššie skóre z posledných hier a `New record!` ak ste ho práve prekonali. 
 
 ### Životy a koniec hry
 Zákazníci v priebehu hry budú chodiť čoraz rýchlejšie. Máte k dispozícii 3 životy - pivá vľavo hore. Po ich stratení je hra ukončené. Život sa dá stratiť viacerými spôsobmi:
-* Hodíte pivo na pult, kde nikto nie je
+* Hodíte pivo na pult, kde nikto nie je (alebo zákazníkovi ktorý už práve pije)
 * Rozbije sa prázdny pohár
 * Zákazník dôjde na koniec pultu, vtedy začne padať pod pult a máte krátky moment mu hodiť pivo a ho ešte zachániť, inak stratíte život
 

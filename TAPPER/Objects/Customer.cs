@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 
 public partial class Customer : Area2D
@@ -16,6 +15,7 @@ public partial class Customer : Area2D
     
     private AnimationPlayer _animationPlayer;
     private Marker2D _emptyGlassSpawnMarker;
+    private Marker2D _tipsSpawnMarker;
     
     private static List<int> _availableSkins = new();
     private static RandomNumberGenerator _rng = new();
@@ -41,7 +41,8 @@ public partial class Customer : Area2D
     public override void _Ready()
     {
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-        _emptyGlassSpawnMarker = GetNode<Marker2D>("Marker2D");
+        _emptyGlassSpawnMarker = GetNode<Marker2D>("Marker2DGlass");
+        _tipsSpawnMarker = GetNode<Marker2D>("Marker2DTip");
         
         SetupRandomSkin();
 
@@ -99,7 +100,7 @@ public partial class Customer : Area2D
     {
         if (area is Beer beer)
         {
-            if (beer.GetCaught())
+            if (_currentState != CustomerState.Drinking && beer.GetCaught())
                 ReactToBeer();
         }
     }
@@ -147,7 +148,7 @@ public partial class Customer : Area2D
     private void LeaveTip()
     {
         Tips newTip = TipScene.Instantiate<Tips>();
-        newTip.GlobalPosition = _emptyGlassSpawnMarker.GlobalPosition;
+        newTip.GlobalPosition = _tipsSpawnMarker.GlobalPosition;
         GetTree().CurrentScene.AddChild(newTip);
     }
 

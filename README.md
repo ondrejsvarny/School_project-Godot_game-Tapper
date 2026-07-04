@@ -1,4 +1,4 @@
-# Zápočtový program: *Tapper (retro hra)*
+# Zápočtový program: *Tapper*
 
 ## Specifikace
 
@@ -8,11 +8,9 @@ V mojej verzii som v skratke implementoval: 4 barové pulty a pohyb hráča (bar
 
 ## Instalace a spuštění
 
-Hra je vyvýjaná v game engine Godot. Pre jednoduché spustenie vo Windowse stačí spustiť vyexportovanú hru `tapper.exe` v zložke `export`. Pre otvorenie projektu v Godote, treba mať stiahnutý `Godot Engine v4.6.1 mono` a importnúť v ňom zložku `TAPPER`. 
+Hra je vytvorená v game engine Godot. Pre jednoduché spustenie vo Windowse stačí spustiť vyexportovanú hru `tapper.exe` v zložke `export`. Pre otvorenie projektu v Godote, treba mať stiahnutý `Godot Engine v4.6.1 mono` a importnúť v ňom zložku `TAPPER`. 
 
 ## Dokumentace
-
-*Tady bude rozcestník k dokumentaci k vašemu programu. Pokud je to potřeba, upravte odkazy na soubory s dokumentací. Pokud dokumentaci nepíšete v Markdownu, uveďte zde, kde ji najdu (např. odkaz na PDF soubor).*
 
 * [Uživatelská dokumentace](docs/user.md)
 * [Programátorská dokumentace](docs/programmer.md)

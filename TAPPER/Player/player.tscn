@@ -508,4 +508,4 @@ libraries/ = SubResource("AnimationLibrary_k53q1")
 autoplay = &"idle"
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=708666577]
-position = Vector2(37, -22)
+position = Vector2(37, -25)
