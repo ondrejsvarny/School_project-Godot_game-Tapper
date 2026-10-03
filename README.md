@@ -14,3 +14,15 @@ Hra je vytvorená v game engine Godot. Pre jednoduché spustenie vyexportovanej 
 
 * [Uživatelská dokumentace](docs/user.md)
 * [Programátorská dokumentace](docs/programmer.md)
+
+## Screenshots
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/32670237-8767-4174-83bb-f726839a0b40" />
+
+<img width="1920" height="1080" alt="Snímka obrazovky 2026-10-03 104522" src="https://github.com/user-attachments/assets/ff7ae22e-514d-4780-8aea-d263d47da022" />
+
+<img width="1920" height="1080" alt="Snímka obrazovky 2026-10-03 104649" src="https://github.com/user-attachments/assets/037ba494-1fa0-4f4e-b733-3c3f46e156c2" />
+
+
+
+
